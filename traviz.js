@@ -9017,11 +9017,7 @@
                 hideConnections();
             });
             $(node).click(function(){
-                // if (document.getElementById("answer").innerHTML == 'Type your translation here...') {
-                //     document.getElementById("answer").innerHTML = '';
-                // }
-                //document.getElementById("answer").innerHTML += vertex.token + " ";
-                document.querySelector("answer").textContent = vertex.token + " ";
+                document.getElementsByName("answer")[0].value = vertex.token + " ";
             });
             if( sal.config.options.splitAndMerge ){
                 $(node).mousedown(function(evt){
