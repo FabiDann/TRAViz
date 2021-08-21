@@ -9017,7 +9017,7 @@
                 hideConnections();
             });
             $(node).click(function(){
-                document.getElementsByName("answer")[0].value = vertex.token + " ";
+                document.getElementsByName("answer")[0].value += vertex.token + " ";
             });
             if( sal.config.options.splitAndMerge ){
                 $(node).mousedown(function(evt){
