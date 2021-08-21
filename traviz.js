@@ -7980,21 +7980,21 @@
         var line = 1;
         var x1 = this.curveRadius;
         var x2 = width - this.curveRadius;
-        var y = this.layers[0].yLevel - this.layers[0].height/2 + 0.5 - Math.floor(gap/2) - 26;
+        var y = this.layers[0].yLevel - this.layers[0].height/2 + 0.5 - Math.floor(gap*1.5);
         var path = "M "+x1+" "+y+" L "+x2+" "+y;
         this.paper.path(path).attr({stroke: this.config.options.baseColor, "stroke-width": 1, "stroke-linecap": "round", "opacity": "1.0"});
-        this.paper.text(x1+7, y+14, this.config.options.lineNumberingText+" "+line).attr({font: "14px "+this.config.options.font,fill:this.config.options.baseColor,"text-anchor":"start","cursor":"default"});
+        //this.paper.text(x1+7, y+14, this.config.options.lineNumberingText+" "+line).attr({font: "14px "+this.config.options.font,fill:this.config.options.baseColor,"text-anchor":"start","cursor":"default"});
         line++;
         for( var i=0; i<this.layers.length-1; i++ ){
             if( this.layers[i].level != this.layers[i+1].level ){
-                var y = this.layers[i].yLevel + this.layers[i].height/2 + 0.5 + Math.floor(gap/2);
+                var y = this.layers[i].yLevel + this.layers[i].height/2 + Math.floor(gap*1.5);
                 var path = "M "+x1+" "+y+" L "+x2+" "+y;
                 this.paper.path(path).attr({stroke: this.config.options.baseColor, "stroke-width": 1, "stroke-linecap": "round", "opacity": "1.0"});
-                this.paper.text(x1+7, y+14, this.config.options.lineNumberingText+" "+line).attr({font: "14px "+this.config.options.font,fill:this.config.options.baseColor,"text-anchor":"start","cursor":"default"});
+                //this.paper.text(x1+7, y+14, this.config.options.lineNumberingText+" "+line).attr({font: "14px "+this.config.options.font,fill:this.config.options.baseColor,"text-anchor":"start","cursor":"default"});
                 line++;
             }
         }
-        var y = this.layers[this.layers.length-1].yLevel + this.layers[this.layers.length-1].height/2 + 0.5 + Math.floor(gap/2);
+        var y = this.layers[this.layers.length-1].yLevel + this.layers[this.layers.length-1].height/2 + 0.5 + gap;
         var path = "M "+x1+" "+y+" L "+x2+" "+y;
         this.paper.path(path).attr({stroke: this.config.options.baseColor, "stroke-width": 1, "stroke-linecap": "round", "opacity": "1.0"});
     }
